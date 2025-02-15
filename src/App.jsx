@@ -1,11 +1,20 @@
 import React from 'react';
-import TopNavBar from './components/TopNavBar';
 import Test from './components/Test';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Main from './components/Main';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
     <div>
-      <Test/>
+      {/* <Test/> */}
+      <div className="app-wrapper">
+        <Header/>
+        <Sidebar />
+        <Main />
+        <Footer />
+      </div>
     </div>
   );
 }
