@@ -4,9 +4,8 @@ const Sidebar = () => {
   return (
     <aside className="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
     <div className="sidebar-brand">
-      <a href="./index.html" className="brand-link">
-        <img src="../../src/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" className="brand-image opacity-75 shadow" />
-        <span className="brand-text fw-light">KeyNest Admin</span>
+      <a className="brand-link">
+        <span className="brand-text font-weight-light">KeyNest Admin</span>
       </a>
     </div>
     <div className="sidebar-wrapper">
@@ -25,7 +24,25 @@ const Sidebar = () => {
               <li className="nav-item">
                 <a href="./index.html" className="nav-link">
                   <i className="nav-icon bi bi-circle" />
-                  <p>Dashboard v1</p>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li className="nav-item menu-open">
+            <a href="#" className="nav-link">
+              <i className="bi bi-house-add-fill"></i>
+              <p>
+                Home
+                <i className="nav-arrow bi bi-chevron-right" />
+              </p>
+            </a>
+            <ul className="nav nav-treeview">
+              <li className="nav-item">
+                <a href="#" className="nav-link">
+                  <i className="nav-icon bi bi-circle" />
+                  <p>Dashboard</p>
                 </a>
               </li>
             </ul>
