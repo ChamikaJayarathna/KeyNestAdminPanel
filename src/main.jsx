@@ -17,6 +17,7 @@ import 'apexcharts/dist/apexcharts.css'
 import 'apexcharts/dist/apexcharts.js'
 // import 'apexcharts/dist/apexcharts.min.js'
 import '@popperjs/core/dist/umd/popper.min.js'
+import 'react-quill-new/dist/quill.snow.css';
 import 'jquery';
 import './index.css'
 
