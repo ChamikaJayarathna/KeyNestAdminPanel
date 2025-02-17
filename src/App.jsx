@@ -1,18 +1,18 @@
 import React from 'react';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import Main from './components/Main';
-import Footer from './components/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from './Layout/Layout';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
   return (
-    <div>
-      <div className="app-wrapper">
-        <Header/>
-        <Sidebar />
-        <Main />
-        <Footer />
-      </div>
+    <div className="app-wrapper">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout/>}>
+            <Route path='dashboard' element={<Dashboard/>}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
