@@ -5,13 +5,13 @@ const AddProperty = () => {
   const [value, setValue] = useState("");
 
   return (
-    <main className="d-flex justify-content-center align-items-center min-vh-100 mt-3 mb-5">
+    <div className="d-flex justify-content-center align-items-center min-vh-100 mt-3 mb-5">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-8 col-lg-6">
-            <div className="card card-info card-outline shadow">
-              <div className="card-header bg-info text-white text-center">
-                <h3 className="mb-0">New Property</h3>
+            <div className="card card-success card-outline shadow">
+              <div className="card-header">
+                <div className="card-title">New Property</div>
               </div>
               <form className="needs-validation p-4" noValidate>
                 <div className="row g-3">
@@ -34,6 +34,14 @@ const AddProperty = () => {
                       Address
                     </label>
                     <input id="address" name="address" type="text" className="form-control" required />
+                  </div>
+
+                  <div className="mb-3">
+                    <label htmlFor="images" className="form-label">Images</label>
+                    <div className="input-group">
+                      <input type="file" className="form-control" id="upload" />
+                      <label className="input-group-text" for="upload">Upload</label>
+                    </div>
                   </div>
 
                   <div className="mb-3">
@@ -118,7 +126,7 @@ const AddProperty = () => {
                 </div>
 
                 <div className="text-center mt-4">
-                  <button className="btn btn-info w-100" type="submit">
+                  <button className="btn btn-success w-100" type="submit">
                     Submit Form
                   </button>
                 </div>
@@ -127,7 +135,7 @@ const AddProperty = () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
