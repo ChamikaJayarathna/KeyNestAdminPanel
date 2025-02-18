@@ -6,7 +6,7 @@ import AddProperty from './pages/AddProperty';
 
 const App = () => {
   return (
-    <div className="app-wrapper">
+    <div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout/>}>
