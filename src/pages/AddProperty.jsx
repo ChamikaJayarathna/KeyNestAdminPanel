@@ -36,13 +36,13 @@ const AddProperty = () => {
                     <input id="address" name="address" type="text" className="form-control" required />
                   </div>
 
-                  <div className="mb-3">
+                  {/* <div className="mb-3">
                     <label htmlFor="images" className="form-label">Images</label>
                     <div className="input-group">
-                      <input type="file" className="form-control" id="upload" />
+                      <input type="file" className="form-control" id="upload" accept="image/*"/>
                       <label className="input-group-text" for="upload">Upload</label>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="mb-3">
                     <label htmlFor="desc" className="form-label">
