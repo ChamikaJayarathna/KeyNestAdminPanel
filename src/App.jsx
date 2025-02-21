@@ -4,9 +4,11 @@ import Layout from './Layout/Layout';
 import Dashboard from './pages/Dashboard';
 import AddProperty from './pages/AddProperty';
 import Login from './pages/Login';
+import { AuthContextProvider } from './context/AuthContext';
 
 const App = () => {
   return (
+    <AuthContextProvider>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Login/>}/>
@@ -17,6 +19,7 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
+    </AuthContextProvider>
   );
 }
 
