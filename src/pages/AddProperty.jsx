@@ -1,8 +1,40 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill-new";
+import apiRequest from "../lib/apiRequest";
+import { useNavigate } from "react-router-dom";
 
 const AddProperty = () => {
   const [value, setValue] = useState("");
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const inputs = Object.fromEntries(formData);
+
+    try {
+      const res = await apiRequest.post('/property/create-property', {
+        title: inputs.title,
+        price: parseInt(inputs.price),
+        address: inputs.address,
+        description: value,
+        city: inputs.city,
+        bedroom: parseInt(inputs.bedroom),
+        bathroom: parseInt(inputs.bathroom),
+        type: inputs.type,
+        property: inputs.property,
+        utilities: inputs.utilities,
+        pet: inputs.pet,
+
+      });
+      navigate("/" + res.data.id);
+    } catch (error) {
+      setError(error);
+    }
+
+  }
 
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100 mt-3 mb-5">
@@ -13,7 +45,7 @@ const AddProperty = () => {
               <div className="card-header">
                 <div className="card-title">New Property</div>
               </div>
-              <form className="needs-validation p-4" noValidate>
+              <form onSubmit={handleSubmit} className="needs-validation p-4" noValidate>
                 <div className="row g-3">
                   <div className="mb-3">
                     <label htmlFor="title" className="form-label">
@@ -66,6 +98,13 @@ const AddProperty = () => {
                   </div>
 
                   <div className="col-md-6">
+                    <label htmlFor="bathroom" className="form-label">
+                      Bathroom Number
+                    </label>
+                    <input min={1} id="bathroom" name="bathroom" type="number" className="form-control" />
+                  </div>
+
+                  {/* <div className="col-md-6">
                     <label htmlFor="latitude" className="form-label">
                       Latitude
                     </label>
@@ -77,7 +116,7 @@ const AddProperty = () => {
                       Longitude
                     </label>
                     <input id="longitude" name="longitude" type="text" className="form-control" />
-                  </div>
+                  </div> */}
 
                   <div className="col-md-6">
                     <label htmlFor="type" className="form-label">
@@ -129,6 +168,7 @@ const AddProperty = () => {
                   <button className="btn btn-success w-100" type="submit">
                     Submit Form
                   </button>
+                  {error && <span>error</span>}
                 </div>
               </form>
             </div>
