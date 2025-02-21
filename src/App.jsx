@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import AddProperty from './pages/AddProperty';
 import Login from './pages/Login';
 import { AuthContextProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   return (
@@ -13,7 +14,11 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Login/>}/>
           <Route path='/login' element={<Login/>}/>
-          <Route path="/" element={<Layout/>}>
+          <Route path="/" element={
+            <ProtectedRoute>
+              <Layout/>
+            </ProtectedRoute>
+          }>
             <Route path='dashboard' element={<Dashboard/>}/>
             <Route path='add-property' element={<AddProperty/>}/>
           </Route>
