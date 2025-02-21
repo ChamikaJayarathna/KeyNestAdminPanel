@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import apiRequest from "../lib/apiRequest";
 import { AuthContext } from "../context/AuthContext";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -15,21 +14,10 @@ const Login = () => {
 
   const userAuthServer = async () => {
     try {
-      // const res = await apiRequest.post('/auth/login', {
-      //   email,
-      //   password
-      // })
-
-      const res = await axios.post("http://localhost:3000/api/auth/login", {
+      const res = await apiRequest.post('/auth/login', {
         email,
         password
-      });
-
-      // if(res.data.token){
-      //   localStorage.setItem('user', JSON.stringify(res.data)); 
-      //   updateUser(res.data);
-      //   toast.success("Login successful");
-      // }
+      })
 
       updateUser(res.data);
       navigate("/dashboard");
