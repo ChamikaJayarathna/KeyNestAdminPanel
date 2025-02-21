@@ -1,11 +1,32 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill-new";
+import axios from "axios";
 import apiRequest from "../lib/apiRequest";
 import toast, { Toaster } from "react-hot-toast";
 
 const AddProperty = () => {
   const [value, setValue] = useState("");
   const [error, setError] = useState("");
+  const [selectedImages, setSelectedImages] = useState([]);
+
+  let cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+  let cloudinaryPreset = import.meta.env.VITE_CLOUDINARY_PRESET;
+
+  const uploadImages = async (images) => {
+    const imageUrls = await Promise.all(
+      Array.from(images).map(async (image) => {
+        const formData = new FormData();
+        formData.append("file", image);
+        formData.append("upload_preset", cloudinaryPreset);
+        const res = await axios.post(
+          `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+          formData
+        );
+        return res.data.secure_url;
+      })
+    );
+    return imageUrls;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +36,9 @@ const AddProperty = () => {
     const toastLoading = toast.loading("Submitting...");
 
     try {
-      await apiRequest.post('/property/create-property', {
+      const imageUrls = await uploadImages(selectedImages);
+
+      await apiRequest.post("/property/create-property", {
         title: inputs.title,
         price: parseInt(inputs.price),
         address: inputs.address,
@@ -27,6 +50,7 @@ const AddProperty = () => {
         property: inputs.property,
         utilities: inputs.utilities,
         pet: inputs.pet,
+        images: imageUrls,
       });
 
       toast.success("New property added successfully 👍", {
@@ -35,10 +59,15 @@ const AddProperty = () => {
 
       e.target.reset();
       setValue("");
+      setSelectedImages([]);
     } catch (error) {
       setError(error.message);
       toast.error("Failed to add property.");
     }
+  };
+
+  const handleImageChange = (e) => {
+    setSelectedImages(e.target.files);
   };
 
   return (
@@ -58,7 +87,7 @@ const AddProperty = () => {
                       <label htmlFor="title" className="form-label">
                         Title
                       </label>
-                      <input type="text" id="title" name="title" className="form-control" />
+                      <input type="text" id="title" name="title" className="form-control" required />
                     </div>
 
                     <div className="mb-3">
@@ -75,13 +104,20 @@ const AddProperty = () => {
                       <input id="address" name="address" type="text" className="form-control" required />
                     </div>
 
-                    {/* <div className="mb-3">
+                    <div className="mb-3">
                       <label htmlFor="images" className="form-label">Images</label>
                       <div className="input-group">
-                        <input type="file" className="form-control" id="upload" accept="image/*"/>
-                        <label className="input-group-text" for="upload">Upload</label>
+                        <input
+                          type="file"
+                          className="form-control"
+                          id="upload"
+                          accept="image/*"
+                          multiple
+                          onChange={handleImageChange}
+                        />
+                        <label className="input-group-text" htmlFor="upload">Upload</label>
                       </div>
-                    </div> */}
+                    </div>
 
                     <div className="mb-3">
                       <label htmlFor="desc" className="form-label">
@@ -111,28 +147,12 @@ const AddProperty = () => {
                       <input min={1} id="bathroom" name="bathroom" type="number" className="form-control" />
                     </div>
 
-                    {/* <div className="col-md-6">
-                      <label htmlFor="latitude" className="form-label">
-                        Latitude
-                      </label>
-                      <input id="latitude" name="latitude" type="text" className="form-control" />
-                    </div>
-
-                    <div className="col-md-6">
-                      <label htmlFor="longitude" className="form-label">
-                        Longitude
-                      </label>
-                      <input id="longitude" name="longitude" type="text" className="form-control" />
-                    </div> */}
-
                     <div className="col-md-6">
                       <label htmlFor="type" className="form-label">
                         Type
                       </label>
                       <select className="form-select" name="type" required>
-                        <option value="rent" defaultChecked>
-                          Rent
-                        </option>
+                        <option value="rent" defaultChecked>Rent</option>
                         <option value="buy">Buy</option>
                       </select>
                     </div>
