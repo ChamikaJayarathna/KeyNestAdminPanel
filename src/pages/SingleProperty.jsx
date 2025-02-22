@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import apiRequest from "../lib/apiRequest";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const SingleProperty = () => {
   const { id } = useParams();
@@ -57,7 +57,7 @@ const SingleProperty = () => {
                           src={image}
                           className="card-img"
                           alt={`Slide ${index + 1}`}
-                          style={{ height:"350px", padding:"20px"}}
+                          style={{ height: "350px", padding: "20px" }}
                         />
                       </div>
                     ))}
@@ -234,6 +234,13 @@ const SingleProperty = () => {
                         readOnly
                       />
                     </div>
+                  </div>
+                  <div className="text-end mt-4">
+                    <Link to="/view-property">
+                      <button type="button" className="btn btn-success">
+                        Cancel
+                      </button>
+                    </Link>
                   </div>
                 </form>
               </div>
