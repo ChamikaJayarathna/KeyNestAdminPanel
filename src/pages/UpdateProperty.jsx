@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import React, { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import ReactQuill from "react-quill-new";
-import { useParams } from 'react-router-dom';
-import apiRequest from '../lib/apiRequest';
-import { Link } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import apiRequest from "../lib/apiRequest";
+import { Link } from "react-router-dom";
 
 const UpdateProperty = () => {
   const { id } = useParams();
@@ -17,12 +17,14 @@ const UpdateProperty = () => {
     type: "rent",
     property: "apartment",
     utilities: "owner",
-    pet: "allowed"
+    pet: "allowed",
   });
 
   const getProperty = async () => {
     try {
-      const response = await apiRequest.get(`/property/get-single-property/${id}`);
+      const response = await apiRequest.get(
+        `/property/get-single-property/${id}`
+      );
       const data = response.data;
       setProperty({
         title: data.title,
@@ -33,7 +35,7 @@ const UpdateProperty = () => {
         type: data.type,
         property: data.property,
         utilities: data.utilities,
-        pet: data.pet
+        pet: data.pet,
       });
       setValue(data.description);
     } catch (error) {
@@ -47,23 +49,23 @@ const UpdateProperty = () => {
     const formData = new FormData(e.target);
 
     const propertyData = {
-      title: formData.get('title'),
-      price: formData.get('price'),
-      address: formData.get('address'),
+      title: formData.get("title"),
+      price: formData.get("price"),
+      address: formData.get("address"),
       description: value,
-      city: formData.get('city'),
-      bedroom: formData.get('bedroom'),
-      type: formData.get('type'),
-      property: formData.get('property'),
-      utilities: formData.get('utilities'),
-      pet: formData.get('pet')
+      city: formData.get("city"),
+      bedroom: formData.get("bedroom"),
+      type: formData.get("type"),
+      property: formData.get("property"),
+      utilities: formData.get("utilities"),
+      pet: formData.get("pet"),
     };
 
-    const toastLoading = toast.loading('Updating property...');
+    const toastLoading = toast.loading("Updating property...");
 
     try {
       await apiRequest.post(`/property/update-property/${id}`, propertyData);
-      toast.success('Property updated successfully 👍', { id: toastLoading });
+      toast.success("Property updated successfully 👍", { id: toastLoading });
     } catch (error) {
       console.log(error);
     }
@@ -71,7 +73,7 @@ const UpdateProperty = () => {
 
   useEffect(() => {
     getProperty();
-  },[]);
+  }, []);
 
   return (
     <>
@@ -84,7 +86,11 @@ const UpdateProperty = () => {
                 <div className="card-header">
                   <div className="card-title">Update Property</div>
                 </div>
-                <form className="needs-validation p-4" noValidate onSubmit={updateProperty}>
+                <form
+                  className="needs-validation p-4"
+                  noValidate
+                  onSubmit={updateProperty}
+                >
                   <div className="row g-3">
                     <div className="mb-3">
                       <label htmlFor="title" className="form-label">
@@ -97,7 +103,9 @@ const UpdateProperty = () => {
                         className="form-control"
                         required
                         value={property.title}
-                        onChange={(e) => setProperty({ ...property, title: e.target.value })}
+                        onChange={(e) =>
+                          setProperty({ ...property, title: e.target.value })
+                        }
                       />
                     </div>
 
@@ -112,7 +120,9 @@ const UpdateProperty = () => {
                         className="form-control"
                         required
                         value={property.price}
-                        onChange={(e) => setProperty({ ...property, price: e.target.value })}
+                        onChange={(e) =>
+                          setProperty({ ...property, price: e.target.value })
+                        }
                       />
                     </div>
 
@@ -127,7 +137,9 @@ const UpdateProperty = () => {
                         className="form-control"
                         required
                         value={property.address}
-                        onChange={(e) => setProperty({ ...property, address: e.target.value })}
+                        onChange={(e) =>
+                          setProperty({ ...property, address: e.target.value })
+                        }
                       />
                     </div>
 
@@ -135,7 +147,11 @@ const UpdateProperty = () => {
                       <label htmlFor="desc" className="form-label">
                         Description
                       </label>
-                      <ReactQuill theme="snow" value={value} onChange={setValue} />
+                      <ReactQuill
+                        theme="snow"
+                        value={value}
+                        onChange={setValue}
+                      />
                     </div>
 
                     <div className="col-md-6">
@@ -148,7 +164,9 @@ const UpdateProperty = () => {
                         type="text"
                         className="form-control"
                         value={property.city}
-                        onChange={(e) => setProperty({ ...property, city: e.target.value })}
+                        onChange={(e) =>
+                          setProperty({ ...property, city: e.target.value })
+                        }
                       />
                     </div>
 
@@ -163,7 +181,9 @@ const UpdateProperty = () => {
                         type="number"
                         className="form-control"
                         value={property.bedroom}
-                        onChange={(e) => setProperty({ ...property, bedroom: e.target.value })}
+                        onChange={(e) =>
+                          setProperty({ ...property, bedroom: e.target.value })
+                        }
                       />
                     </div>
 
@@ -175,7 +195,9 @@ const UpdateProperty = () => {
                         className="form-select"
                         name="type"
                         value={property.type}
-                        onChange={(e) => setProperty({ ...property, type: e.target.value })}
+                        onChange={(e) =>
+                          setProperty({ ...property, type: e.target.value })
+                        }
                         required
                       >
                         <option value="rent">Rent</option>
@@ -191,7 +213,9 @@ const UpdateProperty = () => {
                         className="form-select"
                         name="property"
                         value={property.property}
-                        onChange={(e) => setProperty({ ...property, property: e.target.value })}
+                        onChange={(e) =>
+                          setProperty({ ...property, property: e.target.value })
+                        }
                         required
                       >
                         <option value="apartment">Apartment</option>
@@ -209,7 +233,12 @@ const UpdateProperty = () => {
                         className="form-select"
                         name="utilities"
                         value={property.utilities}
-                        onChange={(e) => setProperty({ ...property, utilities: e.target.value })}
+                        onChange={(e) =>
+                          setProperty({
+                            ...property,
+                            utilities: e.target.value,
+                          })
+                        }
                         required
                       >
                         <option value="owner">Owner is responsible</option>
@@ -226,7 +255,9 @@ const UpdateProperty = () => {
                         className="form-select"
                         name="pet"
                         value={property.pet}
-                        onChange={(e) => setProperty({ ...property, pet: e.target.value })}
+                        onChange={(e) =>
+                          setProperty({ ...property, pet: e.target.value })
+                        }
                         required
                       >
                         <option value="allowed">Allowed</option>
@@ -239,7 +270,7 @@ const UpdateProperty = () => {
                     <button className="btn btn-warning" type="submit">
                       Update Property
                     </button>
-                    <Link to='/view-property'>
+                    <Link to="/view-property">
                       <button type="button" className="btn btn-success">
                         Cancel
                       </button>
