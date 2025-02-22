@@ -1,10 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import ReactQuill from "react-quill-new";
+import { useParams } from 'react-router-dom';
+import apiRequest from '../lib/apiRequest';
 
 const UpdateProperty = () => {
 
+  const { id } = useParams();
   const [value, setValue] = useState("");
+  const [property, setProperty] = useState([]);
+
+  const updateProperty = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+
+    const propertyData = {
+      title: formData.get('title'),
+      price: formData.get('price'),
+      address: formData.get('address'),
+      description: value,
+      city: formData.get('city'),
+      bedroom: formData.get('bedroom'),
+      type: formData.get('type'),
+      property: formData.get('property'),
+      utilities: formData.get('utilities'),
+      pet: formData.get('pet')
+    };
+
+    try {
+      await apiRequest.post(`/property/update-property/${id}`, propertyData);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    updateProperty();
+  },[]);
 
   return (
     <>

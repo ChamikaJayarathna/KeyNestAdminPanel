@@ -76,7 +76,7 @@ const ViewProperty = () => {
                               <i className="bi bi-eye text-white"></i>
                             </button>
                           </Link>
-                          <Link to={`/update-property`}>
+                          <Link to={`/update-property/${property._id}`}>
                             <button className='btn btn-success ms-2'>
                               <i className="bi bi-pencil-square text-white"></i>
                             </button>
