@@ -50,6 +50,7 @@ const ViewProperty = () => {
                   <th>Property</th>
                   <th>Utilities Policy</th>
                   <th>Pet Policy</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -66,6 +67,13 @@ const ViewProperty = () => {
                     <td>{property.property}</td>
                     <td>{property.utilities}</td>
                     <td>{property.pet}</td>
+                    <td>
+                      <div className="d-flex justify-content-between">
+                        <button className='btn btn-warning'>
+                          <i className="bi bi-eye text-white"></i>
+                        </button>
+                      </div>
+                    </td>
                   </tr>
                 ))}
               </tbody>
