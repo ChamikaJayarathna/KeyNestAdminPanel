@@ -23,7 +23,7 @@ const App = () => {
           }>
             <Route path='dashboard' element={<Dashboard/>}/>
             <Route path='view-property' element={<ViewProperty/>}/>
-            <Route path='view-single-property' element={<SingleProperty/>}/>
+            <Route path='view-single-property/:id' element={<SingleProperty/>}/>
             <Route path='add-property' element={<AddProperty/>}/>
           </Route>
         </Routes>

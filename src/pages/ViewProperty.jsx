@@ -70,7 +70,7 @@ const ViewProperty = () => {
                     <td>{property.pet}</td>
                     <td>
                       <div className="d-flex justify-content-between">
-                        <Link to='/view-single-property'>
+                        <Link to={`/view-single-property/${property._id}`}>
                           <button className='btn btn-warning'>
                             <i className="bi bi-eye text-white"></i>
                           </button>
