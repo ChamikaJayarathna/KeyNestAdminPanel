@@ -57,6 +57,7 @@ const SingleProperty = () => {
                           src={image}
                           className="card-img"
                           alt={`Slide ${index + 1}`}
+                          style={{ height:"350px", padding:"20px"}}
                         />
                       </div>
                     ))}
