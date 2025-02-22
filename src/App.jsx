@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import ViewProperty from './pages/ViewProperty';
-import SingleProperty from './components/SingleProperty';
+import SingleProperty from './pages/SingleProperty';
 
 const App = () => {
   return (
