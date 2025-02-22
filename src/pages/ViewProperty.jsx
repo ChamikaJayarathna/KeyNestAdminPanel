@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import apiRequest from '../lib/apiRequest';
+import { Link } from 'react-router-dom';
 
 const ViewProperty = () => {
 
@@ -69,9 +70,11 @@ const ViewProperty = () => {
                     <td>{property.pet}</td>
                     <td>
                       <div className="d-flex justify-content-between">
-                        <button className='btn btn-warning'>
-                          <i className="bi bi-eye text-white"></i>
-                        </button>
+                        <Link to='/view-single-property'>
+                          <button className='btn btn-warning'>
+                            <i className="bi bi-eye text-white"></i>
+                          </button>
+                        </Link>
                       </div>
                     </td>
                   </tr>
