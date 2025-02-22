@@ -6,7 +6,7 @@ const Sidebar = () => {
   return (
     <aside className="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
       <div className="sidebar-brand ">
-        <Link to='/' className="brand-link text-center">
+        <Link to='/dashboard' className="brand-link text-center">
           <span className="brand-text font-weight-light">KeyNest Admin</span>
         </Link>
       </div>
@@ -41,6 +41,12 @@ const Sidebar = () => {
                 </p>
               </a>
               <ul className="nav nav-treeview">
+                <li className="nav-item">
+                  <NavLink to='/view-property' className="nav-link">
+                    <i className="nav-icon bi bi-circle" />
+                    <p>View Property</p>
+                  </NavLink>
+                </li>
                 <li className="nav-item">
                   <NavLink to='/add-property' className="nav-link">
                     <i className="nav-icon bi bi-circle" />
