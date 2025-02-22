@@ -142,7 +142,7 @@ const SingleProperty = () => {
                   </div>
 
                   <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                       <label htmlFor="city" className="form-label">
                         City
                       </label>
@@ -155,7 +155,7 @@ const SingleProperty = () => {
                       />
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                       <label htmlFor="bedroom" className="form-label">
                         Bedroom Number
                       </label>
@@ -171,7 +171,7 @@ const SingleProperty = () => {
                   </div>
 
                   <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                       <label htmlFor="type" className="form-label">
                         Type
                       </label>
@@ -184,7 +184,7 @@ const SingleProperty = () => {
                       />
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                       <label htmlFor="property" className="form-label">
                         Property
                       </label>
@@ -199,7 +199,7 @@ const SingleProperty = () => {
                   </div>
 
                   <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                       <label htmlFor="utilities" className="form-label">
                         Utilities Policy
                       </label>
@@ -212,7 +212,7 @@ const SingleProperty = () => {
                       />
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-md-6 mb-3">
                       <label htmlFor="pet" className="form-label">
                         Pet Policy
                       </label>
