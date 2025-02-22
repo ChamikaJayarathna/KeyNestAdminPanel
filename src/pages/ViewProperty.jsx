@@ -23,10 +23,10 @@ const ViewProperty = () => {
     <div className="app-content mt-4">
       <div className='container-fluid'>
         <div className="card mb-4">
-          <div className="card-header mt-2">
-            <h3 className="card-title">View All Property</h3>
+          <div className="card-header">
+            <h3 className="card-title mt-2">View All Property</h3>
             <div className="card-tools">
-              <ul className="pagination pagination-sm float-end">
+              <ul className="pagination pagination-sm float-end mt-1">
                 <li className="page-item"><a className="page-link" href="#">«</a></li>
                 <li className="page-item"><a className="page-link" href="#">1</a></li>
                 <li className="page-item"><a className="page-link" href="#">2</a></li>
@@ -70,11 +70,23 @@ const ViewProperty = () => {
                     <td>{property.pet}</td>
                     <td>
                       <div className="d-flex justify-content-between">
-                        <Link to={`/view-single-property/${property._id}`}>
-                          <button className='btn btn-warning'>
-                            <i className="bi bi-eye text-white"></i>
-                          </button>
-                        </Link>
+                        <div className="d-flex">
+                          <Link to={`/view-single-property/${property._id}`}>
+                            <button className='btn btn-warning'>
+                              <i className="bi bi-eye text-white"></i>
+                            </button>
+                          </Link>
+                          <Link to={`/update-property`}>
+                            <button className='btn btn-success ms-2'>
+                              <i className="bi bi-pencil-square text-white"></i>
+                            </button>
+                          </Link>
+                          <Link to='#'>
+                            <button className='btn btn-danger ms-2'>
+                              <i className="bi bi-trash-fill text-white"></i>
+                            </button>
+                          </Link>
+                        </div>
                       </div>
                     </td>
                   </tr>

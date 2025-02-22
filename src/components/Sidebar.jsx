@@ -71,6 +71,12 @@ const Sidebar = () => {
                     <p>Add Property</p>
                   </NavLink>
                 </li>
+                <li className="nav-item">
+                  <NavLink to='/update-property' className="nav-link">
+                    <i className="nav-icon bi bi-circle" />
+                    <p>Update Property</p>
+                  </NavLink>
+                </li>
               </ul>
             </li>
 

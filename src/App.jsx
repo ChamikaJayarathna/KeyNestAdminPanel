@@ -8,6 +8,7 @@ import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import ViewProperty from './pages/ViewProperty';
 import SingleProperty from './pages/SingleProperty';
+import UpdateProperty from './pages/UpdateProperty';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             <Route path='view-property' element={<ViewProperty/>}/>
             <Route path='view-single-property/:id' element={<SingleProperty/>}/>
             <Route path='add-property' element={<AddProperty/>}/>
+            <Route path='update-property' element={<UpdateProperty/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
