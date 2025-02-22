@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import ViewProperty from './pages/ViewProperty';
+import SingleProperty from './components/SingleProperty';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           }>
             <Route path='dashboard' element={<Dashboard/>}/>
             <Route path='view-property' element={<ViewProperty/>}/>
+            <Route path='view-single-property' element={<SingleProperty/>}/>
             <Route path='add-property' element={<AddProperty/>}/>
           </Route>
         </Routes>
