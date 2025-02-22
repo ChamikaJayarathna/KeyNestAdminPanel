@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import ReactQuill from "react-quill-new";
 import { useParams } from 'react-router-dom';
 import apiRequest from '../lib/apiRequest';
@@ -59,8 +59,11 @@ const UpdateProperty = () => {
       pet: formData.get('pet')
     };
 
+    const toastLoading = toast.loading('Updating property...');
+
     try {
       await apiRequest.post(`/property/update-property/${id}`, propertyData);
+      toast.success('Property updated successfully 👍', { id: toastLoading });
     } catch (error) {
       console.log(error);
     }
