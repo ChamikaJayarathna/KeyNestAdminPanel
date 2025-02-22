@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import ReactQuill from "react-quill-new";
 import { useParams } from 'react-router-dom';
 import apiRequest from '../lib/apiRequest';
+import { Link } from 'react-router-dom';
 
 const UpdateProperty = () => {
   const { id } = useParams();
@@ -235,9 +236,11 @@ const UpdateProperty = () => {
                     <button className="btn btn-warning" type="submit">
                       Update Property
                     </button>
-                    <button type="button" className="btn btn-success">
-                      Cancel
-                    </button>
+                    <Link to='/view-property'>
+                      <button type="button" className="btn btn-success">
+                        Cancel
+                      </button>
+                    </Link>
                   </div>
                 </form>
               </div>
