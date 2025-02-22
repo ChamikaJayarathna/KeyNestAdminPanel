@@ -46,7 +46,6 @@ const AddProperty = () => {
         description: value,
         city: inputs.city,
         bedroom: parseInt(inputs.bedroom),
-        bathroom: parseInt(inputs.bathroom),
         type: inputs.type,
         property: inputs.property,
         utilities: inputs.utilities,
@@ -139,13 +138,6 @@ const AddProperty = () => {
                         Bedroom Number
                       </label>
                       <input min={1} id="bedroom" name="bedroom" type="number" className="form-control" />
-                    </div>
-
-                    <div className="col-md-6">
-                      <label htmlFor="bathroom" className="form-label">
-                        Bathroom Number
-                      </label>
-                      <input min={1} id="bathroom" name="bathroom" type="number" className="form-control" />
                     </div>
 
                     <div className="col-md-6">
