@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useParams } from 'react-router-dom';
 
 const Sidebar = () => {
 
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
   const [isPropertyOpen, setIsPropertyOpen] = useState(false);
+
+  const { id } = useParams();
 
   const toggleDashboardMenu = () => {
     setIsDashboardOpen(!isDashboardOpen);
@@ -55,6 +57,12 @@ const Sidebar = () => {
                   <NavLink to='/view-property' className="nav-link">
                     <i className="nav-icon bi bi-circle" />
                     <p>View Property</p>
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to={`/view-single-property/${id}`} className="nav-link">
+                    <i className="nav-icon bi bi-circle" />
+                    <p>View Single Property</p>
                   </NavLink>
                 </li>
                 <li className="nav-item">
