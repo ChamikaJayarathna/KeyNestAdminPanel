@@ -18,6 +18,7 @@ const AddProperty = () => {
         const formData = new FormData();
         formData.append("file", image);
         formData.append("upload_preset", cloudinaryPreset);
+        formData.append("folder", "properties");
         const res = await axios.post(
           `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
           formData
