@@ -100,6 +100,7 @@ const SingleProperty = () => {
                       name="title"
                       className="form-control"
                       value={properties.title}
+                      readOnly
                     />
                   </div>
 
@@ -113,6 +114,7 @@ const SingleProperty = () => {
                       type="number"
                       className="form-control"
                       value={properties.price}
+                      readOnly
                     />
                   </div>
 
@@ -126,6 +128,7 @@ const SingleProperty = () => {
                       type="text"
                       className="form-control"
                       value={properties.address}
+                      readOnly
                     />
                   </div>
 
@@ -138,6 +141,7 @@ const SingleProperty = () => {
                       id="desc"
                       rows="3"
                       value={properties.description}
+                      readOnly
                     ></textarea>
                   </div>
 
@@ -152,6 +156,7 @@ const SingleProperty = () => {
                         type="text"
                         className="form-control"
                         value={properties.city}
+                        readOnly
                       />
                     </div>
 
@@ -166,6 +171,7 @@ const SingleProperty = () => {
                         type="number"
                         className="form-control"
                         value={properties.bedroom}
+                        readOnly
                       />
                     </div>
                   </div>
@@ -181,6 +187,7 @@ const SingleProperty = () => {
                         type="text"
                         className="form-control"
                         value={properties.type}
+                        readOnly
                       />
                     </div>
 
@@ -194,6 +201,7 @@ const SingleProperty = () => {
                         type="text"
                         className="form-control"
                         value={properties.property}
+                        readOnly
                       />
                     </div>
                   </div>
@@ -209,6 +217,7 @@ const SingleProperty = () => {
                         type="text"
                         className="form-control"
                         value={properties.utilities}
+                        readOnly
                       />
                     </div>
 
@@ -222,6 +231,7 @@ const SingleProperty = () => {
                         type="text"
                         className="form-control"
                         value={properties.pet}
+                        readOnly
                       />
                     </div>
                   </div>
