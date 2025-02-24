@@ -52,7 +52,7 @@ const UpdateProperty = () => {
       title: formData.get("title"),
       price: formData.get("price"),
       address: formData.get("address"),
-      description: value,
+      description: new DOMParser().parseFromString(value, 'text/html').body.textContent,
       city: formData.get("city"),
       bedroom: formData.get("bedroom"),
       type: formData.get("type"),

@@ -43,7 +43,7 @@ const AddProperty = () => {
         title: inputs.title,
         price: parseInt(inputs.price),
         address: inputs.address,
-        description: value,
+        description: new DOMParser().parseFromString(value, 'text/html').body.textContent,
         city: inputs.city,
         bedroom: parseInt(inputs.bedroom),
         type: inputs.type,
